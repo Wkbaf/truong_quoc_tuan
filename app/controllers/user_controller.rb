@@ -10,7 +10,7 @@ class UserController < ApplicationController
   end
 
   def get_list_products
-    products = Product.joins(store: :user).where("users.id = ?", current_user.id) 
+    products = Product.left_outer_joins(:user).includes(:store).where(user_id: current_user.id)
     products_mapping = products.map do |product|
       {
         "store": product.store.name,

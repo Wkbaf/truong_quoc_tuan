@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :store
+  belongs_to :user
 
   validates :store, presence: true
 
