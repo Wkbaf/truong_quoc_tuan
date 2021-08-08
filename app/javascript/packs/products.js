@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $('#product_table').DataTable({
+      "bAutoWidth": false,
       "processing": true,
       "info": true,
       "stateSave": true,
-      "serverSide": true,
+      "serverSide": false,
       "ajax": {
         "url": "/users/get_list_products",
         "type": "GET",
@@ -19,14 +20,7 @@ $(document).ready(function () {
         { "data": "price" },
         { "data": "quantity" },
         { "data": "variant" },
-        { "data": "description" },
-        {
-          "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
-          "data": function (data) {
-            console.log("data", data)
-              return '<button class="btn btn-danger" type="button">' + data.name + 'Delete</button>'
-          }
-        }
+        { "data": "description" }
       ]
     });
 });

@@ -1,3 +1,35 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+
+ .row {
+    width: 100%;
+ }
+
+.col-xs-12 {
+    width: 100%
+}
+
+.dataTables_length {
+    float: left
+}
+
+.dataTables_filter {
+    float: right;
+    padding-bottom: 15px;
+}
+
+.paging_simple_numbers {
+    float: right;
+}
+
+.navbar-nav {
+	margin-left: 64em;
+}

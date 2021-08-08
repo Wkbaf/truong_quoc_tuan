@@ -1,37 +1,51 @@
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
-
-<div class="container">
-    <div class="row">
-        <h2 class="text-center">Bootstrap styling for Responsive Datatable (Server Side)</h2>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#store_form">
+<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+  <div class="container">
+    <div class="row collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <br>
+    <div class="row mt-5">
+      <h2 class="col-md-6 text-left">List of products</h2>
+       <div class="col-md-6 text-right">
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#store_form">
           Create store
         </button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product_form">
           Create product
         </button>
+       </div> 
     </div>
-
     <div class="row">
-
-        <div class="col-md-12">
-
-            <table id="product_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>Store</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Variant</th>
-                        <th>Description</th>
-                        <th></th>
-                    </tr>
-                </thead>
-
-            </table>
-
-        </div>
+      <div class="col-md-12">
+        <table id="product_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th>Store</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Variant</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
     </div>
 </div>
 <%= render :partial => 'form_add_product', locals: {stores: stores, product: product} %>
 <%= render :partial => 'form_add_store', locals: {store: store} %>
+
+<style type="text/css">
+  body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: none;
+  }
+</style>
