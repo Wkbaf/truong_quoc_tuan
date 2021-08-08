@@ -60,3 +60,6 @@ gem 'pg'
 
 # Authentication stuff
 gem "devise"
+
+# Crontab stuff
+gem 'whenever', require: false

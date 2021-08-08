@@ -4,13 +4,13 @@ class UserController < ApplicationController
   def index
     store = Store.new
     product = Product.new
-    stores = Store.all
+    stores = Store.where(user_id: current_user.id)
 
     render locals: {store: store, stores: stores, product: product}
   end
 
   def get_list_products
-    products = Product.all
+    products = Product.joins(store: :user).where("users.id = ?", current_user.id) 
     products_mapping = products.map do |product|
       {
         "store": product.store.name,
@@ -21,8 +21,6 @@ class UserController < ApplicationController
         "description": product.description
       }
     end
-
-    puts "products_mapping #{products_mapping.inspect}\n\n\n\n"
 
     render json: products_mapping
   end
