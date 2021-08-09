@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :stores
   has_many :products, through: :stores
 
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true
 end

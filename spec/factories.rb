@@ -2,6 +2,7 @@ FactoryBot.define do
   
   factory :user do
     sequence(:email) { |n| "test#{n}@test.com"}
+    name { Faker::Lorem.unique.word }
     password { "12345678" }
   end
 
