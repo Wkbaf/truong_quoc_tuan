@@ -13,18 +13,18 @@ RSpec.describe "Testing user controller", type: :request do
     end
 
     it "requests list of all products" do
-      get get_list_products_users_path
+      get get_list_products_homepage_index_path
       expect(response).to be_successful
     end
 
     it "expects product count eq to 1" do
-      get get_list_products_users_path
+      get get_list_products_homepage_index_path
       products = JSON.parse(response.body)
       expect(products.count).to eq 1
     end
 
     it "should be belong to user" do
-      get get_list_products_users_path
+      get get_list_products_homepage_index_path
       products = JSON.parse(response.body)
       expect(products.first["name"]).to eq user.products.first.name
     end

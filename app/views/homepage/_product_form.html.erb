@@ -1,0 +1,34 @@
+<%= form_with model: product do |form| %>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>Store: </label>
+      <%= form.select(:store_id, stores.map{|store| [store.name, store.id]}, {}, { :class => 'form-control' }) %>
+    </div>
+    <div class="form-group">
+      <label>Name: </label>
+      <%= form.text_field :name, required: true, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Price: </label>
+      <%= form.number_field :price, step: 0.1, min: 0, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Quantity: </label>
+      <%= form.number_field :quantity, step: 1, min: 0, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Variant: </label>
+      <%= form.text_field :variant, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Description: </label>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="modal-footer border-top-0 d-flex justify-content-center">
+    <% unless form.object.new_record? %>
+      <%= link_to 'Back', root_path, class: "btn btn-default" %>
+    <% end %>
+    <%= form.submit :Submit, class: "btn btn-success" %>
+  </div>
+<% end %>
